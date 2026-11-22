@@ -8,6 +8,7 @@
     "url": "https://www.addie.house"
   },
   "homepage": "https://www.addie.house/developers/mcp.md",
+  "privacyPolicyUrl": "https://www.addie.house/privacy",
   "license": "MIT",
   "keywords": ["real-estate", "property", "australia", "housing", "market-data", "listings"]
 }
