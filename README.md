@@ -61,7 +61,7 @@ You need an Addie account, which is free at [www.addie.house](https://www.addie.
 
 - **Claude Code**: install the Addie plugin from the plugin directory (run `/plugin`), or add the server directly with
   `claude mcp add --transport http addie 'https://mcp.addie.house/mcp?access=account'`. Then run `/mcp`, choose `addie` and authenticate.
-- **claude.ai, Claude Desktop and mobile**: add **Addie** from the Connectors directory, or add a custom connector in Claude's connector settings with the URL `https://mcp.addie.house/mcp` (exactly as written, with no trailing slash).
+- **claude.ai, Claude Desktop and mobile**: add **Addie** from the Connectors directory, or add a custom connector in Claude's connector settings with the account URL `https://mcp.addie.house/mcp?access=account` and choose OAuth.
 
 For guest-only research, configure `https://mcp.addie.house/mcp?access=public` and choose no authentication.
 
