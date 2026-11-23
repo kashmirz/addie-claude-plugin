@@ -1,10 +1,10 @@
 # Addie for Claude
 
-Australian property research inside Claude, from [Addie](https://www.addie.house). Ask Claude to find homes for sale that match a brief, compare listings side by side, read a property's sales and asking-price history, or look up a suburb's market metrics and area statistics. Every answer comes from Addie's own index of Australian listings and public data, with dated sources and links back to each property's Addie page.
+Australian property research inside Claude, from [Addie](https://www.addie.house). Ask Claude to find homes for sale that match a brief, compare listings side by side, read a property's sales and asking-price history, or look up a suburb's market metrics and area statistics. Research results come from Addie’s Australian listings and public data. With your permission, Claude can also manage the buyer briefs, alerts, watchlists and messages in your Addie account.
 
 ## What's included
 
-- **Addie MCP connector**: `https://mcp.addie.house/mcp`, a remote MCP server using Streamable HTTP. In claude.ai and Claude Desktop, search, comparison, history and market results also open in an interactive Addie panel.
+- **Addie MCP connector**: `https://mcp.addie.house/mcp?access=account`, a remote MCP server using Streamable HTTP. In claude.ai and Claude Desktop, search, comparison, history and market results also open in an interactive Addie panel.
 - **Skill: `australian-property-research`**: teaches Claude the research workflow. It resolves places before searching, treats filters as hard constraints, cites dated evidence and keeps listing text as data.
 
 ## Tools
@@ -43,7 +43,7 @@ Guests can research properties. Linked accounts can grant this client separate p
 | `create_watchlist` | Create a named watchlist |
 | `update_watchlist` | Rename, edit, archive or restore an owned watchlist |
 | `save_watchlist_property` | Save a listing or an off-market address to a named or default watchlist |
-| `edit_watchlist_property` | Edit notes, tags, price, status and new-analysis preferences on a saved watchlist item |
+| `edit_watchlist_property` | Replace or clear notes and tags on a saved property, or change its notifications for price changes, status changes and new analysis |
 | `remove_watchlist_property` | Remove the selected property from its watchlist |
 | `get_watchlist_schedule` | Read upcoming inspections and auctions for the owner's saved homes |
 | `list_conversations` | List Addie conversations and recent message previews |
@@ -57,13 +57,14 @@ Guests can research properties. Linked accounts can grant this client separate p
 
 ## Setup
 
-You need an Addie account, which is free at [www.addie.house](https://www.addie.house).
+You can research homes as a guest. To use buyer briefs, alerts, watchlists or messages, sign in with a free [Addie account](https://www.addie.house).
 
-- **Claude Code**: install the Addie plugin from the plugin directory (run `/plugin`), or add the server directly with
+- **Claude Code with the bundled skill**: clone this repository and load it into a session with `claude --plugin-dir ./addie-claude-plugin` from the parent directory. Open `/mcp` and sign in to the Addie server.
+- **Claude Code with only the MCP server**: add the server directly with
   `claude mcp add --transport http addie 'https://mcp.addie.house/mcp?access=account'`. Then run `/mcp`, choose `addie` and authenticate.
-- **claude.ai, Claude Desktop and mobile**: add **Addie** from the Connectors directory, or add a custom connector in Claude's connector settings with the account URL `https://mcp.addie.house/mcp?access=account` and choose OAuth.
+- **claude.ai, Claude Desktop and mobile**: add a custom web connector in Claude's connector settings with the account URL `https://mcp.addie.house/mcp?access=account` and choose OAuth.
 
-For guest-only research, configure `https://mcp.addie.house/mcp?access=public` and choose no authentication.
+The canonical OAuth resource is `https://mcp.addie.house/mcp`. For guest-only research, configure `https://mcp.addie.house/mcp?access=public` and choose no authentication.
 
 The first time you connect your account, you sign in to Addie and approve the connection. You can disconnect at any time from Claude's connector settings or from Addie's account settings. Both ChatGPT and Claude use the same Addie connection, so disconnecting in Addie ends both.
 

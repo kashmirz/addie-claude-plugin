@@ -1,6 +1,6 @@
 ---
 name: australian-property-research
-description: Research Australian residential property with the Addie tools — find homes for sale that match a brief, compare listings, read a property's sales and asking-price history, and check suburb market metrics and area context. Use when the user asks about buying, comparing or valuing Australian homes, a specific Australian address, or an Australian suburb's market.
+description: Research Australian residential property with the Addie tools — find homes for sale that match a brief, compare listings, read a property's sales and asking-price history, and check suburb market metrics and area context. Use for Australian property research and for managing the user’s Addie buyer briefs, alerts, watchlists and messages.
 ---
 
 # Australian property research with Addie
