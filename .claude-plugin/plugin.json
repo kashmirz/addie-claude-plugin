@@ -1,7 +1,7 @@
 {
   "name": "addie",
-  "version": "1.1.2",
-  "description": "Search Australian homes by exact physical filters and visual style, inspect floor plans and dated sales or price-drop history, compare suburb markets with cited data, and manage your Addie buyer briefs, alerts, watchlists, inspection schedules and agent messages.",
+  "version": "1.2.0",
+  "description": "Research Australian homes, school catchments and market trends, and manage buyer briefs, property alerts, watchlists and Addie messages with permission from the connected account.",
   "author": {
     "name": "Addie Property",
     "email": "hello@addie.house",
