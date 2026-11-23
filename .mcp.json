@@ -2,7 +2,7 @@
   "mcpServers": {
     "addie": {
       "type": "http",
-      "url": "https://mcp.addie.house/mcp"
+      "url": "https://mcp.addie.house/mcp?access=account"
     }
   }
 }

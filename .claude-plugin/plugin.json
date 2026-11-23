@@ -1,7 +1,7 @@
 {
   "name": "addie",
-  "version": "1.0.0",
-  "description": "Australian property research with Addie: search homes for sale with exact filters, compare listings, read sales and asking-price history, and check suburb market metrics and area context.",
+  "version": "1.1.0",
+  "description": "Research Australian homes and manage buyer briefs, property alerts, watchlists and Addie messages with permission from the connected account.",
   "author": {
     "name": "Addie Property",
     "email": "hello@addie.house",
@@ -10,5 +10,12 @@
   "homepage": "https://www.addie.house/developers/mcp.md",
   "privacyPolicyUrl": "https://www.addie.house/privacy",
   "license": "MIT",
-  "keywords": ["real-estate", "property", "australia", "housing", "market-data", "listings"]
+  "keywords": [
+    "real-estate",
+    "property",
+    "australia",
+    "housing",
+    "market-data",
+    "listings"
+  ]
 }
