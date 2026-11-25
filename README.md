@@ -1,4 +1,4 @@
-# Addie for Claude
+# Addie Property for Claude
 
 Bring unbiased, live Australian real estate and property research — and your actual Addie buying workflow — straight into Claude (claude.ai, Claude Desktop, mobile, Cowork and Claude Code), powered by [Addie](https://www.addie.house).
 
