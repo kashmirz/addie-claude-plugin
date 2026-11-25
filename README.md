@@ -57,7 +57,7 @@ Instead of piecing together stale web snippets across portal tabs, Claude querie
 
 You can research Australian homes as a guest without signing in. To create or manage buyer briefs, alerts, watchlists or messages, sign in with a free [Addie account](https://www.addie.house).
 
-- **Claude Code with the bundled skill**: clone this repository and load it into a session with `claude --plugin-dir ./addie-claude-plugin` from the parent directory. Open `/mcp` and sign in to the Addie server.
+- **Claude Code with the bundled skill**: clone this repository and load it into a session with `claude --plugin-dir ./addie-claude-plugin` from the parent directory. Open `/mcp` and sign in to the Addie server. Invoke the skill as `/addie-property:australian-property-research`.
 - **Claude Code with only the MCP server**: add the server directly with
   `claude mcp add --transport http addie 'https://mcp.addie.house/mcp?access=account'`. Then run `/mcp`, choose `addie` and authenticate.
 - **claude.ai, Claude Desktop and mobile**: add a custom web connector in Claude's connector settings with the account URL `https://mcp.addie.house/mcp?access=account` and choose OAuth.
