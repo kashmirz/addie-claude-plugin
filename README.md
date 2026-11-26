@@ -2,21 +2,20 @@
 
 Bring unbiased, live Australian real estate and property research — and your actual Addie buying workflow — straight into Claude (claude.ai, Claude Desktop, mobile, Cowork and Claude Code), powered by [Addie](https://www.addie.house).
 
-Instead of piecing together stale web snippets across portal tabs, Claude queries Addie's live Australian real estate and property index with objective, ad-free search ranking, strict hard filters, visual search, floor plans, upcoming auction dates and venues, dated sales and asking-price revision history, national public school catchments, and cited suburb market data. Link your free Addie account and Claude can also turn your conversation into running Addie buyer briefs, live property alerts, named watchlists (including off-market addresses), weekend inspection schedules and approved agent enquiries — all synced back to Addie.
+Instead of piecing together stale web snippets across portal tabs, Claude queries Addie's live Australian real estate and property index with objective, ad-free search ranking, strict hard filters, visual search, floor plans, upcoming auction dates and venues, dated sales and asking-price revision history, and cited suburb market data. Link your free Addie account and Claude can also turn your conversation into running Addie buyer briefs, live property alerts, named watchlists (including off-market addresses), weekend inspection schedules and approved agent enquiries — all synced back to Addie.
 
 ## Why use Addie in Claude
 
 - **Objective, ad-free search ranking:** Unlike traditional Australian property portals, Addie’s search ranking is never influenced by advertising spend or paid placement from real estate agents or vendors — so results are ordered strictly by relevance to your brief.
 - **Search by exact physical criteria *and* how a home looks:** Enforce hard constraints that portals scatter or hide — suburb, postcode, region, radius or polygon, AUD budget, bedrooms, bathrooms, parking, land size, building coverage, pre-market status, street frontage direction, corner lot, rear access, and aerial-detected pool or solar — then rank results by a plain-English visual description such as *"mid-century brick with clerestory windows"*. Filters are never silently relaxed.
 - **Run instant due diligence on any address or pasted Addie link:** Paste shared Addie URLs or Australian street addresses (including homes not currently listed) to compare up to eight properties side by side with descriptions, land and building sizes, floor plans, upcoming auction dates and venues, photos, agent contacts, and dated sales, asking-price reduction, withdrawal and rental history.
-- **Ground suburb, school-zone and investment analysis in dated evidence:** Compare up to five suburbs, postcodes, LGAs, SA2–SA4 regions, cities or states across 23 sale, rental and inventory metrics (median price, price per square metre, days on market, 12-month price change, price-reduction share, median rent, bond turnover, months of supply and absorption rate) plus public primary and secondary school catchments (with official state/territory lookup links) and aggregate economic, employment, income, crime, rent, yield and occupancy context.
+- **Ground suburb and investment analysis in dated evidence:** Compare up to five suburbs, postcodes, LGAs, SA2–SA4 regions, cities or states across 23 sale, rental and inventory metrics (median price, price per square metre, days on market, 12-month price change, price-reduction share, median rent, bond turnover, months of supply and absorption rate) plus aggregate economic, employment, income, crime, rent, yield and occupancy context.
 - **Move from chat straight into action (linked account):** Save a researched brief as a live Addie alert, triage newly matched homes and price drops since your last visit, maintain watchlists and upcoming inspection/auction schedules, and check or send approved agent messages — under four independent permissions you control in Addie settings.
 
 ## What's included
 
-- **Addie MCP connector**: `https://mcp.addie.house/mcp?access=account`, a remote MCP server using Streamable HTTP. In claude.ai and Claude Desktop, search, comparison, history, market and area results open in an interactive Addie panel with verified listing photos, refinements, sortable comparisons, interactive trend charts and a map.
-- **Reusable MCP prompts**: `find_homes`, `compare_properties`, `property_history`, `suburb_research` and (when signed in) `review_buyer_briefs` for one-click structured workflows in Claude Desktop and Claude Code.
-- **Skill: `australian-property-research`**: teaches Claude the end-to-end Australian property research and account workflow — resolving places and pasted Addie links accurately, confirming published prices against budgets, citing dated evidence and school catchment lookup portals, keeping listing text as untrusted data, and confirming alert and message actions before acting.
+- **Addie MCP connector**: `https://mcp.addie.house/mcp?access=account`, a remote MCP server using Streamable HTTP. In claude.ai and Claude Desktop, search, comparison, history and market results open in an interactive Addie panel with verified listing photos and a map.
+- **Skill: `australian-property-research`**: teaches Claude the end-to-end Australian property research and account workflow — resolving places and pasted Addie links accurately, confirming published prices against budgets, citing dated evidence, keeping listing text as untrusted data, and confirming alert and message actions before acting.
 
 ## Example workflows & prompts
 
@@ -32,16 +31,15 @@ Instead of piecing together stale web snippets across portal tabs, Claude querie
 - *"Compare the first four search results and tell me which has the largest land area, best floor plan for a home office, and cleanest pricing history."*
 - *"What has 12 Example Street, Newtown NSW sold or been listed for in the past, and has it ever been withdrawn?"*
 
-### 3. Compare suburbs, check public school catchments & evaluate an area
+### 3. Compare suburbs & evaluate an area before buying or investing
 
 - *"Compare 5-year median house price growth, days on market, price-reduction share and months of supply across Marrickville, Dulwich Hill and Earlwood NSW."*
-- *"Which public primary and secondary school catchments cover Paddington QLD for 2026, and how do median rents, household income and crime compare?"*
 - *"Describe the rental yield, median rent, bond turnover, household income and crime picture for Geelong vs. Ballarat."*
 
 ### 4. Turn research into live Addie briefs, alerts & weekly triage *(linked account)*
 
 - *"Save that Brunswick/Coburg search as a draft buyer brief, preview what matches right now, and show me my alert delivery choices before activating it."*
-- *"What new listings or price drops have matched my buyer briefs since last week? Walk me through the unreviewed homes."*
+- *"What new listings or price drops have matched my buyer briefs since last week? Show me the unreviewed homes."*
 
 ### 5. Track watchlists, off-market homes & weekend inspections *(linked account)*
 
@@ -83,7 +81,7 @@ Public research tools work for guests and signed-in accounts. Account tools requ
 | `get_properties` | Reads or compares up to eight properties in detail, including descriptions, sizes, floor plans, upcoming auction dates/venues, photos and agent contacts |
 | `get_property_history` | Lists dated sales, asking-price revisions, listing campaigns, withdrawals and rental events for a property |
 | `query_market` | Returns suburb and regional market, rental and inventory metrics with sample sizes and freshness |
-| `get_location_context` | Returns aggregate area statistics (economy, employment, income, crime, rent, yield, occupancy) and suburb public school catchments |
+| `get_location_context` | Returns aggregate area statistics: economy, employment, income, crime, rent, yield and occupancy |
 
 ### Account & permissions
 
@@ -140,7 +138,7 @@ Public research tools work for guests and signed-in accounts. Account tools requ
 
 ## Data and privacy
 
-Addie returns only the account records requested by the tools you authorise. A message send delivers your approved text to the selected recipient and may trigger email or in-app notifications. Photos you choose to send are stored privately by Addie and shared with the conversation participants. Listings, history, school catchments and market figures come from Addie's index and official public datasets. Listing descriptions are the agencies' own text. See the [Addie Privacy Policy](https://www.addie.house/privacy) and [Terms of Use](https://www.addie.house/terms).
+Addie returns only the account records requested by the tools you authorise. A message send delivers your approved text to the selected recipient and may trigger email or in-app notifications. Photos you choose to send are stored privately by Addie and shared with the conversation participants. Listings, history and market figures come from Addie's index. Listing descriptions are the agencies' own text. See the [Addie Privacy Policy](https://www.addie.house/privacy) and [Terms of Use](https://www.addie.house/terms).
 
 Addie covers Australia only and provides research, not financial, legal or purchasing advice.
 
