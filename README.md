@@ -10,13 +10,16 @@ Instead of piecing together stale web snippets across portal tabs, Claude querie
 - **Search by exact physical criteria *and* how a home looks:** Enforce hard constraints that portals scatter or hide — suburb, postcode, region, radius or polygon, AUD budget, bedrooms, bathrooms, parking, land size, building coverage, pre-market status, street frontage direction, corner lot, rear access, and aerial-detected pool or solar — then rank results by a plain-English visual description such as *"mid-century brick with clerestory windows"*. Filters are never silently relaxed.
 - **Run instant due diligence on any address or pasted Addie link:** Paste shared Addie URLs or Australian street addresses (including homes not currently listed) to compare up to eight properties side by side with descriptions, land and building sizes, floor plans, upcoming auction dates and venues, photos, agent contacts, and dated sales, asking-price reduction, withdrawal and rental history.
 - **Ground suburb and investment analysis in dated evidence:** Compare up to five suburbs, postcodes, LGAs, SA2–SA4 regions, cities or states across 23 sale, rental and inventory metrics (median price, price per square metre, days on market, 12-month price change, price-reduction share, median rent, bond turnover, months of supply and absorption rate) plus aggregate economic, employment, income, crime, rent, yield and occupancy context.
+- **Screen development sites and build development reports (linked account):** Run Addie Site Finder planning screening across suburbs, postcodes or councils for subdivision, rear dual occupancy, duplex, townhouse or apartment potential (previewing candidate counts and daily allowances before starting), inspect deciding planning controls on any analysed parcel, and build shareable development reports.
 - **Move from chat straight into action (linked account):** Save a researched brief as a live Addie alert, triage newly matched homes and price drops since your last visit, maintain watchlists and upcoming inspection/auction schedules, and check or send approved agent messages — under four independent permissions you control in Addie settings.
 
 ## What's included
 
-- **Addie MCP connector**: `https://mcp.addie.house/mcp?access=account`, a remote MCP server using Streamable HTTP. In claude.ai and Claude Desktop, search, comparison, history and market results open in an interactive Addie panel with verified listing photos and a map.
-- **Skill: `australian-property-research`**: teaches Claude the end-to-end Australian property research and account workflow — resolving places and pasted Addie links accurately, confirming published prices against budgets, citing dated evidence, keeping listing text as untrusted data, and confirming alert and message actions before acting.
-
+- **Addie MCP connector**: `https://mcp.addie.house/mcp?access=account`, a remote MCP server using Streamable HTTP. In claude.ai and Claude Desktop, search, comparison, history, market and Site Finder results open in an interactive Addie panel with verified listing photos, a map and Site Finder parcel boundary views where licensed.
+- **Skill: `australian-property-research`**: teaches Claude the end-to-end Australian property research, Site Finder and account workflow — resolving places and pasted Addie links accurately, confirming published prices against budgets, citing dated evidence, previewing Site Finder candidate counts before starting an analysis, keeping listing text as untrusted data, and confirming alert and message actions before acting.
+- **Skill & command: `find-development-sites`** (`/addie-property:find-development-sites <development type> in <area>`): previews candidate counts and daily allowances, runs an agreed Site Finder search, ranks sites with their deciding controls, and handles daily limits cleanly.
+- **Skill & command: `development-report`** (`/addie-property:development-report <address or site>`): checks an analysed site, confirms subdivision conversion if needed, builds a Site Finder development report on request, and summarises its options, controls and disclaimers.
+- **Agent: `site-scout`** (Cowork and Claude Code): read-only scout that polls a Site Finder analysis already started in the main conversation and returns a ranked shortlist with deciding controls.
 
 ## Example workflows & prompts
 
@@ -52,6 +55,11 @@ Instead of piecing together stale web snippets across portal tabs, Claude querie
 - *"Check if the agent replied about the Paddington terrace and summarise what they sent."*
 - *"Draft an enquiry to the listing agent asking for the contract of sale, strata report and Saturday inspection time — show me the exact wording before sending."*
 
+### 7. Screen development sites & build a development report *(linked account)*
+
+- *"Find residential blocks for sale in Lara, VIC over 650 m² that could suit a 2-lot subdivision — preview the candidate count before starting."*
+- *"Build a Site Finder development report for the top-ranked site and summarise its options, controls and assumptions."*
+
 ## Setup
 
 You can research Australian homes as a guest without signing in. To create or manage buyer briefs, alerts, watchlists or messages, sign in with a free [Addie account](https://www.addie.house).
@@ -83,6 +91,19 @@ Public research tools work for guests and signed-in accounts. Account tools requ
 | `get_property_history` | Lists dated sales, asking-price revisions, listing campaigns, withdrawals and rental events for a property |
 | `query_market` | Returns suburb and regional market, rental and inventory metrics with sample sizes and freshness |
 | `get_location_context` | Returns aggregate area statistics: economy, employment, income, crime, rent, yield and occupancy |
+
+### Development screening (Site Finder)
+
+| Tool | What it does |
+| --- | --- |
+| `preview_site_analysis` | Counts matching candidate sites and returns a sealed quote and daily allowance coverage without starting an analysis |
+| `start_site_analysis` | Starts a quoted Site Finder analysis or continues one stopped at the daily limit |
+| `get_site_analysis` | Reads a Site Finder analysis's progress and ranked candidate sites with outcomes, capacity and deciding planning controls |
+| `cancel_site_analysis` | Stops an assistant-started Site Finder analysis after sites in progress finish |
+| `get_development_site` | Reads one analysed site's outcomes, alternatives, deciding planning controls, unresolved requirements and report eligibility |
+| `start_development_report` | Queues a Site Finder development report for one analysed site |
+| `get_development_report` | Reads a development report's build status and finished summary, options, controls, assumptions and Addie report link |
+| `list_site_work` | Lists the account's recent Site Finder analyses (including website/app searches) and development reports, plus today's allowance |
 
 ### Account & permissions
 
@@ -142,7 +163,7 @@ Public research tools work for guests and signed-in accounts. Account tools requ
 
 Addie returns only the account records requested by the tools you authorise. Outgoing messages use a server-enforced two-step flow: `prepare_message` resolves the recipient, property, attachments and exact text into a 15-minute draft preview, and `send_message` requires that sealed draft ID, matching preview fields and explicit user confirmation before delivering your text (which may trigger email or in-app notifications). Photos you choose to send are stored privately by Addie and shared with the conversation participants. Listings, history and market figures come from Addie's index. Listing descriptions are the agencies' own text. See the [Addie Privacy Policy](https://www.addie.house/privacy) and [Terms of Use](https://www.addie.house/terms).
 
-Addie covers Australia only and provides research, not financial, legal or purchasing advice.
+Addie covers Australia only and provides research and automated planning screening, not financial, legal, planning or purchasing advice.
 
 ## Support
 
