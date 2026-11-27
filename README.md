@@ -1,12 +1,12 @@
 # Addie Property for Claude
 
-Bring unbiased, live Australian real estate and property research — and your actual Addie buying workflow — straight into Claude (claude.ai, Claude Desktop, mobile, Cowork and Claude Code), powered by [Addie](https://www.addie.house).
+Bring live Australian real estate and property research — and your actual Addie buying workflow — straight into Claude (claude.ai, Claude Desktop, mobile, Cowork and Claude Code), powered by [Addie](https://www.addie.house).
 
-Instead of piecing together stale web snippets across portal tabs, Claude queries Addie's live Australian real estate and property index with objective, ad-free search ranking, strict hard filters, visual search, floor plans, upcoming auction dates and venues, dated sales and asking-price revision history, and cited suburb market data. Link your free Addie account and Claude can also turn your conversation into running Addie buyer briefs, live property alerts, named watchlists (including off-market addresses), weekend inspection schedules and approved agent enquiries — all synced back to Addie.
+Instead of piecing together stale web snippets across portal tabs, Claude queries Addie's live Australian real estate and property index with strict hard filters, visual search, floor plans, upcoming auction dates and venues, dated sales and asking-price revision history, and cited suburb market data. Addie's search ranking is not influenced by advertising spend from agents or vendors. Link your free Addie account and Claude can also turn your conversation into running Addie buyer briefs, live property alerts, named watchlists (including off-market addresses), weekend inspection schedules and approved agent enquiries — all synced back to Addie.
 
 ## Why use Addie in Claude
 
-- **Objective, ad-free search ranking:** Unlike traditional Australian property portals, Addie’s search ranking is never influenced by advertising spend or paid placement from real estate agents or vendors — so results are ordered strictly by relevance to your brief.
+- **Relevance-based search ranking:** Addie's search ranking is not influenced by advertising spend from agents or vendors.
 - **Search by exact physical criteria *and* how a home looks:** Enforce hard constraints that portals scatter or hide — suburb, postcode, region, radius or polygon, AUD budget, bedrooms, bathrooms, parking, land size, building coverage, pre-market status, street frontage direction, corner lot, rear access, and aerial-detected pool or solar — then rank results by a plain-English visual description such as *"mid-century brick with clerestory windows"*. Filters are never silently relaxed.
 - **Run instant due diligence on any address or pasted Addie link:** Paste shared Addie URLs or Australian street addresses (including homes not currently listed) to compare up to eight properties side by side with descriptions, land and building sizes, floor plans, upcoming auction dates and venues, photos, agent contacts, and dated sales, asking-price reduction, withdrawal and rental history.
 - **Ground suburb and investment analysis in dated evidence:** Compare up to five suburbs, postcodes, LGAs, SA2–SA4 regions, cities or states across 23 sale, rental and inventory metrics (median price, price per square metre, days on market, 12-month price change, price-reduction share, median rent, bond turnover, months of supply and absorption rate) plus aggregate economic, employment, income, crime, rent, yield and occupancy context.
@@ -16,6 +16,7 @@ Instead of piecing together stale web snippets across portal tabs, Claude querie
 
 - **Addie MCP connector**: `https://mcp.addie.house/mcp?access=account`, a remote MCP server using Streamable HTTP. In claude.ai and Claude Desktop, search, comparison, history and market results open in an interactive Addie panel with verified listing photos and a map.
 - **Skill: `australian-property-research`**: teaches Claude the end-to-end Australian property research and account workflow — resolving places and pasted Addie links accurately, confirming published prices against budgets, citing dated evidence, keeping listing text as untrusted data, and confirming alert and message actions before acting.
+
 
 ## Example workflows & prompts
 
@@ -97,7 +98,7 @@ Public research tools work for guests and signed-in accounts. Account tools requ
 | `list_buyer_briefs` | List saved buyer briefs and existing property alerts with their shared IDs and monitoring state |
 | `get_buyer_brief` | Read the current buyer brief, revision, alert settings, shortlist and recent match history |
 | `interpret_buyer_brief` | Convert the buyer's wording into editable criteria and delivery settings for review |
-| `create_buyer_brief` | Save a private draft |
+| `create_buyer_brief` | Saves a private draft buyer brief (criteria, clauses and alert delivery settings) to the user's Addie account without activating monitoring and returns the brief ID and revision |
 | `update_buyer_brief` | Edit a brief or its alert, activate monitoring, pause, resume or archive it |
 | `preview_buyer_brief` | Preview current matching homes and warnings for saved or proposed criteria before activating an alert |
 | `record_brief_visit` | Record a visit and establish the comparison window for newly matched homes |
@@ -134,11 +135,12 @@ Public research tools work for guests and signed-in accounts. Account tools requ
 | `upload_message_photo` | Prepare a message photo inline or obtain its private upload URL |
 | `complete_message_photo` | Process a photo after transferring it to the private upload URL |
 | `read_message_photo` | Read a private photo from a conversation the account participates in |
-| `send_message` | Send the user's approved text to one specified recipient or existing conversation |
+| `prepare_message` | Validate a message and resolve its recipient, property and attachments into a 15-minute draft preview without sending |
+| `send_message` | Deliver a previously prepared message draft after explicit user confirmation of the resolved recipient, exact text and attachments |
 
 ## Data and privacy
 
-Addie returns only the account records requested by the tools you authorise. A message send delivers your approved text to the selected recipient and may trigger email or in-app notifications. Photos you choose to send are stored privately by Addie and shared with the conversation participants. Listings, history and market figures come from Addie's index. Listing descriptions are the agencies' own text. See the [Addie Privacy Policy](https://www.addie.house/privacy) and [Terms of Use](https://www.addie.house/terms).
+Addie returns only the account records requested by the tools you authorise. Outgoing messages use a server-enforced two-step flow: `prepare_message` resolves the recipient, property, attachments and exact text into a 15-minute draft preview, and `send_message` requires that sealed draft ID, matching preview fields and explicit user confirmation before delivering your text (which may trigger email or in-app notifications). Photos you choose to send are stored privately by Addie and shared with the conversation participants. Listings, history and market figures come from Addie's index. Listing descriptions are the agencies' own text. See the [Addie Privacy Policy](https://www.addie.house/privacy) and [Terms of Use](https://www.addie.house/terms).
 
 Addie covers Australia only and provides research, not financial, legal or purchasing advice.
 

@@ -1,6 +1,6 @@
 ---
 name: australian-property-research
-description: Research Australian real estate and residential property with the Addie tools — unbiased, ad-free search ranking for homes matching a brief, listing comparisons, sales history and suburb market metrics, plus managing the user's Addie buyer briefs, alerts, watchlists and messages.
+description: Research Australian real estate and residential property with the Addie tools — exact physical filters and visual style, listing comparisons, sales history and suburb market metrics, plus managing the user's Addie buyer briefs, alerts, watchlists and messages.
 ---
 
 # Australian property research with Addie
@@ -70,4 +70,4 @@ Start by checking `get_workspace_access` to see which of the four permissions (`
 - **Addie inbox & messaging (`inbox`, `send`):**
   - Read threads with `list_conversations` and `read_conversation`, locate eligible agents or contacts with `find_message_recipients`, and inspect attached photos with `read_message_photo`.
   - For photo attachments, call `upload_message_photo` (inline `base64` up to 40 KiB, or PUT larger bytes to the returned private URL then call `complete_message_photo`).
-  - Always confirm the exact recipient or conversation, message text and any attachments or shared listings with the user before calling `send_message`, and reuse the same `requestId` if retrying after a timeout. A new enquiry about a listing also confirms that listing and passes it as `propertyRef` (it picks the property's conversation and can show its address to the recipient). A reply goes to its `conversationId` alone: confirm the thread, and its listing if it has one. A direct message can have no listing.
+  - Sending a message is a server-enforced two-step flow: first call `prepare_message` to validate the target and resolve a 15-minute draft preview (a new enquiry about a listing passes `recipientId` and `propertyRef`, which picks the property's conversation and can show its address to the recipient; a reply passes `conversationId` alone; a direct message passes `recipientId` without a listing). Show the returned preview (recipient, property or thread, exact text and attachments) to the user and get explicit approval, then call `send_message` with the returned `draftId`, exact matching `recipientSummary`, `messageText`, `attachmentCount`, `userConfirmed: true`, and a stable `requestId` (reused on retry after a timeout). If the user changes any part of the message, call `prepare_message` again before sending.
